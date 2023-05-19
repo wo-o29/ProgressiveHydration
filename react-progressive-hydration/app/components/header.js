@@ -12,7 +12,7 @@ function useGlobalListener(event, handler) {
 	});
 }
 
-export default function Header() {
+export default function Header(props) {
 	const [scrolled, setScrolled] = useState(isScrolled);
 	useGlobalListener('scroll', () => {
 		setScrolled(isScrolled());
@@ -22,6 +22,7 @@ export default function Header() {
 		<header className={`header ${scrolled ? ' scrolled' : ''}`}>
 			<h1 class="icon">🍔</h1>
 			<h1>Progressive Hydration</h1>
+			<button style={{width:'12em'}} onClick={()=>{console.log("allow hydration");props.onClick()}}>allow hydration</button>
 			<Counter />
 		</header>
 	);

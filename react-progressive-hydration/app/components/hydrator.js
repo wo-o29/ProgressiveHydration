@@ -1,42 +1,48 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 function interopDefault(mod) {
-	return mod && mod.default || mod;
+  return (mod && mod.default) || mod;
 }
 
 export function ServerHydrator({ load, ...props }) {
-	const Child = interopDefault(load());
-	return (
-		<section>
-			<Child {...props} />
-		</section>
-	);
+  const Child = interopDefault(load());
+  return (
+    <section>
+      <Child {...props} />
+    </section>
+  );
 }
 
 export class Hydrator extends React.Component {
-	shouldComponentUpdate() {
-		return false;
-	}
+  shouldComponentUpdate() {
+    return false;
+  }
 
-	componentDidMount() {
-		new IntersectionObserver(async ([entry], obs) => {
-			if (!entry.isIntersecting) return;
-			obs.unobserve(this.root);
+  componentDidMount() {
+    new IntersectionObserver(async ([entry], obs) => {
+      if (!entry.isIntersecting) return;
+      obs.unobserve(this.root);
 
-			const { load, ...props } = this.props;
-			const Child = interopDefault(await load());
-			ReactDOM.hydrate(<Child {...props} />, this.root);
-		}).observe(this.root);
-	}
+      const { load, ...props } = this.props;
+      const Child = interopDefault(await load());
+      if (props.allowHydration) {
+		console.log("Hydration Start...!")
+        ReactDOM.hydrate(<Child {...props} />, this.root);
+		console.log('Hydrate : ')
+		console.log(this.root)
 
-	render() {
-		return (
-			<section
-				ref={c => this.root = c}
-				dangerouslySetInnerHTML={{ __html: '' }}
-				suppressHydrationWarning
-			/>
-		);
-	}
+      }
+    }).observe(this.root);
+  }
+
+  render() {
+    return (
+      <section
+        ref={(c) => (this.root = c)}
+        dangerouslySetInnerHTML={{ __html: "" }}
+        suppressHydrationWarning
+      />
+    );
+  }
 }

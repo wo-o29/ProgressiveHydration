@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Hydrator as ClientHydrator, ServerHydrator } from './hydrator';
 import Intro from './intro';
 import Header from './header';
@@ -12,14 +12,15 @@ if (typeof window === 'undefined') {
 }
 
 export default function App() {
+	const [allow,setAllow] = useState(false)
 	return (
 		<div id="app">
-			<Header />
+			<Header onClick={()=>{setAllow(true)}} />
 
 			<Intro />
 
 			{/* <Stream flush={flushing} /> */}
-			<Hydrator load={load} />
+			<Hydrator allowHydration={allow} load={load} />
 		</div>
 	);
 }

@@ -9,6 +9,7 @@ body {
 	position: fixed;
 	left: 0;
 	top: 0;
+	
 	width: 100%;
 	height: 80px;
 	display: flex;
@@ -25,6 +26,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	padding-bottom: 30px;
+	margin-bottom: 15em;
 }
 
 .intro p {

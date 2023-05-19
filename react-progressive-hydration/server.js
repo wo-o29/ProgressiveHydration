@@ -75,6 +75,6 @@ app.get('/favicon.ico', (req, res) => res.end());
 app.use(express.static(path.resolve(__dirname, 'app')));
 app.use('/build', express.static(path.resolve(__dirname, 'build')));
 
-const listener = app.listen(process.env.PORT || 2048, () => {
+const listener = app.listen(process.env.PORT || 3000, () => {
   console.log('Your app is listening on port ' + listener.address().port);
 });
