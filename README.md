@@ -1,2 +1,2 @@
-# ProgressiveHydration
-About Progressive hydration  and examples on it
+# Progressive Hydration
+About Progressive hydration and examples on it
