@@ -1,5 +1,5 @@
 # Progressive Hydration
-About Progressive hydration and examples on it
+This repo for duscuss about the Progressive Hydration.The Progressive Hydration Is a technique used in react to improve performance and user experience. By load the static UI First and the delay the js untill the main content loaded.
 
 
 ## react progressive hydration 
