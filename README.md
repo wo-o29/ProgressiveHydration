@@ -8,3 +8,10 @@ hydrate the page progressively. The header and the intro hydrate it at the begin
 The list of users hydrate when we scroll down 
 
 <img src='assets/HomePage.png' alt='Home page screen shot'>
+
+### How To Run
+The exmple use Webpack to generate the bunlders. You notice that we have Server.js witch is an express 
+app. And the app directory is our react app (fronend). You can run the app with using this command in the terminal 
+```bash
+npm start 
+```
