@@ -3,7 +3,7 @@ This repo for duscuss about the Progressive Hydration.The Progressive Hydration 
 
 
 
-## react progressive hydration 
+## Example : react progressive hydration 
 In this example, we have header and hero-section(intro) and list of users. The point we need to 
 hydrate the page progressively. The header and the intro hydrate it at the beginning. 
 The list of users hydrate when we scroll down.
