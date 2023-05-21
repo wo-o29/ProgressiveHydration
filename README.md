@@ -19,6 +19,7 @@ app. And the app directory is our react app (fronend). You can run the app with 
 npm start 
 ```
 After Run this command the server start building the bundles
+
 <img src='assets/building.png'>
 
 ### How it work
