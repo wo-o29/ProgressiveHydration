@@ -26,7 +26,7 @@ After Run this command the server start building the bundles
 
 <img src='assets/building.png'>
 
-### How it work
+### How it works
 To enable the hydration to our list we have to click on the button 'allow hydration'
 let's try witout clicking the button and scroll down into the list. So What you notice ? actually nothing change let's try to click on the user avator image and watch our console in the browser.
 Still !! nothing happen.
