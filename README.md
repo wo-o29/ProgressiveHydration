@@ -18,3 +18,15 @@ app. And the app directory is our react app (fronend). You can run the app with 
 ```bash
 npm start 
 ```
+### How it work
+To enable the hydration of our list we have to click on the button 'allow hydration'
+let's try witout clicking the button and scroll down into the list. So What you notice ? actually nothing change  
+let's try to click on the user avator image and watch our console in the browser.
+Still !! nothing happen.
+
+Now lets refersh the site and try again with clicking on the button to enable the hydration to the list
+
+**scrol down**
+<img src='assets/hydratiolist.png'>
+**Clicking on avator**
+<img src='assets/clickingonhydrat.png'>
