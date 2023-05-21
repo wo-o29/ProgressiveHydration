@@ -26,10 +26,10 @@ Still !! nothing happen.
 
 Now lets refersh the site and try again with clicking on the button to enable the hydration to the list
 
-**scrol down**
+**SCRLL DOWN**
 
 <img src='assets/hydratiolist.png'>
 
-**Clicking on avator**
+**CLICKING ON AVATOR**
 
 <img src='assets/clickingonhydrat.png'>
