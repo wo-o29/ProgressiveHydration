@@ -18,6 +18,9 @@ app. And the app directory is our react app (fronend). You can run the app with 
 ```bash
 npm start 
 ```
+After Run this command the server start building the bundles
+<img src='assets/building.png'>
+
 ### How it work
 To enable the hydration of our list we have to click on the button 'allow hydration'
 let's try witout clicking the button and scroll down into the list. So What you notice ? actually nothing change let's try to click on the user avator image and watch our console in the browser.
