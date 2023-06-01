@@ -87,7 +87,7 @@ app.get('/', async (request, response) => {
     });
 ...
 ```
-After Creation the inital content and link the bundler, it have to return the response as HTNL Document
+After Creation the inital content and link the bundler, it have to return the response as HTML Document
 ```js
 ...
     await new Promise((resolve, reject) => {
