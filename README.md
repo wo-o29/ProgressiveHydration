@@ -65,6 +65,9 @@ app.get('/', async (request, response) => {
 Wait until data starts flowing to send a 200 OK,
 so errors don't trigger "headers already sent"
 ```js
+    .
+    .
+    .
     stream.on('data', function handleData() {
       stream.off('data', handleData);
       response.writeHead(200, {
@@ -78,4 +81,7 @@ so errors don't trigger "headers already sent"
       response.write(`<body><div id="approot">`);
       response.flushHeaders();
     });
+    .
+    .
+    .
 ```
