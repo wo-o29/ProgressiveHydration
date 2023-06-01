@@ -44,7 +44,7 @@ Now lets refersh the site and try again with clicking on the button to enable th
 <img src='assets/clickingonhydrat.png'>
 
 ## Server Side
-In server side, once the server start it start building the the bundle (intial content) 
+In server side, once the server start the bundle start building (intial content start creating) 
 * Run the SSR functions to create the bundler
 * Create the HTML File
 * Link the bundler
@@ -62,8 +62,7 @@ app.get('/', async (request, response) => {
   }
 }
 ```
-Wait until data starts flowing to send a 200 OK,
-so errors don't trigger "headers already sent"
+Right now, the server start write the inital content (HTML). Notice that the bundler script are added in the page with defer. That's mean the entire html node has been created the script will be running.
 ```js
 app.get('/', async (request, response) => {
 ...
@@ -75,7 +74,10 @@ app.get('/', async (request, response) => {
         'x-content-type-options': 'nosniff'
       });
       response.write(`<!DOCTYPE html><html><head>`);
-      response.write(`<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/style.css">
+      response.write(`<meta name="viewport" content="width=device-width, 
+
+      initial-scale=1"><link rel="stylesheet" href="/style.css">
+      
       <script type="module" defer src="/build/client.js"></script></head>`);
       response.write(`<body><div id="approot">`);
       response.flushHeaders();
