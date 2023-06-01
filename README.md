@@ -45,18 +45,26 @@ Now lets refersh the site and try again with clicking on the button to enable th
 
 ## Server Side
 In server side, once the server start it start building the the bundle (intial content) 
-* Run the SSR functions to create the bundlers
+* Run the SSR functions to create the bundler
+* Create the HTML File
+* Link the bundler
 * Return it as response
-```js
 
-/** SSR */
+```js
 app.get('/', async (request, response) => {
   try {
     const stream = await ssr({
       url: request.url
     });
-    // Wait until data starts flowing to send a 200 OK,
-    // so errors don't trigger "headers already sent".
+    .
+    .
+    .
+  }
+}
+```
+Wait until data starts flowing to send a 200 OK,
+so errors don't trigger "headers already sent"
+```js
     stream.on('data', function handleData() {
       stream.off('data', handleData);
       response.writeHead(200, {
@@ -65,29 +73,9 @@ app.get('/', async (request, response) => {
         'x-content-type-options': 'nosniff'
       });
       response.write(`<!DOCTYPE html><html><head>`);
-      response.write(`<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/style.css"><script type="module" defer src="/build/client.js"></script></head>`);
+      response.write(`<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/style.css">
+      <script type="module" defer src="/build/client.js"></script></head>`);
       response.write(`<body><div id="approot">`);
       response.flushHeaders();
     });
-    await new Promise((resolve, reject) => {
-      stream.on('error', err => {
-        stream.unpipe(response);
-        reject(err);
-      });
-      stream.on('end', () => {
-        response.write('</div></body></html>');
-        resolve();
-      });
-      stream.pipe(response);
-    });
-  }
-  catch (err) {
-    // @see https://twitter.com/_developit/status/1123041336054177792
-    response.writeHead(500, {
-      'content-type': 'text/pain'
-    });
-    response.end(String(err && err.stack || err));
-    return;
-  }
-});
 ```
