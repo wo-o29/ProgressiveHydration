@@ -116,3 +116,25 @@ import App from './components/app.js';
 
 ReactDOM.hydrate(<App />, window.approot);
 ```
+
+Inside the component that we need to hydrae it we can wrap it inside section element and then hydrate this section. As shown in this code we declare an IntersectionObserver whitch is observe any action to this section. For instance the scroll into the section will Folk the callback function.
+
+In the callback function we hydrate what we want to hydrate. Then unobserve the Observer.
+
+
+```js
+ new IntersectionObserver(async ([entry], obs) => {
+      if (!entry.isIntersecting) return;
+      obs.unobserve(this.root);
+
+      const { load, ...props } = this.props;
+      const Child = interopDefault(await load());
+      if (props.allowHydration) {
+		console.log("Hydration Start...!")
+        ReactDOM.hydrate(<Child {...props} />, this.root);
+		console.log('Hydrate : ')
+		console.log(this.root)
+
+      }
+    }).observe(this.root);
+```
