@@ -35,12 +35,12 @@ Still !! nothing happen.
 
 Now lets refersh the site and try again with clicking on the button to enable the hydration to the list
 
-**SCRLL DOWN**
+### SCRLL DOWN
 Once the scroll reach the content the hydration operation start working
 
 <img src='assets/hydratiolist.png'>
 
-**CLICKING ON AVATAR**
+### CLICKING ON AVATAR**
 So Let's try to click on the avatar. We notice that the action of clicking on avator is working.
 
 The hydrtion work Well !!
