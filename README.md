@@ -41,9 +41,9 @@ Once the scroll reach the content the hydration operation start working
 <img src='assets/hydratiolist.png'>
 
 ### CLICKING ON AVATAR
-So Let's try to click on the avatar. We notice that the action of clicking on avator is working.
+So Let's try to click on the avatar. We notice that the action of clicking on avator is working. onClick action write on the console as you see in figure below.
 
-The hydrtion working well !!
+So the hydrtion working well !!
 
 <img src='assets/clickingonhydrat.png'>
 
