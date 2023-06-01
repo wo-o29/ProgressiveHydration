@@ -16,6 +16,7 @@ The the allow hydrate button is for let use to test before/after the allow the h
 The exmple use Webpack to generate the bunlders. You notice that we have Server.js witch is an express 
 app. And the app directory is our react app (fronend). You can run the app with using this command in the terminal 
 ```bash
+npm i 
 npm start 
 ```
 <p>
@@ -41,3 +42,52 @@ Now lets refersh the site and try again with clicking on the button to enable th
 **CLICKING ON AVATOR**
 
 <img src='assets/clickingonhydrat.png'>
+
+## Server Side
+In server side, once the server start it start building the the bundle (intial content) 
+* Run the SSR functions to create the bundlers
+* Return it as response
+```js
+
+/** SSR */
+app.get('/', async (request, response) => {
+  try {
+    const stream = await ssr({
+      url: request.url
+    });
+    // Wait until data starts flowing to send a 200 OK,
+    // so errors don't trigger "headers already sent".
+    stream.on('data', function handleData() {
+      stream.off('data', handleData);
+      response.writeHead(200, {
+        'content-type': 'text/html',
+        'content-transfer-encoding': 'chunked',
+        'x-content-type-options': 'nosniff'
+      });
+      response.write(`<!DOCTYPE html><html><head>`);
+      response.write(`<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/style.css"><script type="module" defer src="/build/client.js"></script></head>`);
+      response.write(`<body><div id="approot">`);
+      response.flushHeaders();
+    });
+    await new Promise((resolve, reject) => {
+      stream.on('error', err => {
+        stream.unpipe(response);
+        reject(err);
+      });
+      stream.on('end', () => {
+        response.write('</div></body></html>');
+        resolve();
+      });
+      stream.pipe(response);
+    });
+  }
+  catch (err) {
+    // @see https://twitter.com/_developit/status/1123041336054177792
+    response.writeHead(500, {
+      'content-type': 'text/pain'
+    });
+    response.end(String(err && err.stack || err));
+    return;
+  }
+});
+```
