@@ -45,7 +45,7 @@ Now lets refersh the site and try again with clicking on the button to enable th
 
 ## Server Side
 In server side, once the server start the bundle start building (intial content start creating) 
-* Run the SSR functions to create the bundler
+* Generate Bundlers through webpack 
 * Create the HTML File
 * Link the bundler
 * Return it as response
@@ -56,9 +56,7 @@ app.get('/', async (request, response) => {
     const stream = await ssr({
       url: request.url
     });
-.
-.
-.
+...
   }
 }
 ```
