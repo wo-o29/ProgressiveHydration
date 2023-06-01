@@ -75,9 +75,7 @@ app.get('/', async (request, response) => {
       });
       response.write(`<!DOCTYPE html><html><head>`);
       response.write(`<meta name="viewport" content="width=device-width, 
-
       initial-scale=1"><link rel="stylesheet" href="/style.css">
-      
       <script type="module" defer src="/build/client.js"></script></head>`);
       response.write(`<body><div id="approot">`);
       response.flushHeaders();
