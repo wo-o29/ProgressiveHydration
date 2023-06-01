@@ -109,3 +109,10 @@ In client side, instead of creation new node of elements we **hydrate** it. So w
 
 React allow you to create  virtual DOM or hydrate app. The hydration mean the UI is shown but the handlers and the it's one logic not working yet. Like pizza, the operaton of put the pizza inside the furnace and wait untill the pizza is ready. This operation called hydrate the pizza. In other words, the hydrate function it just enable the logic of node bu reusing it instead of create it from beginning.
 
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/app.js';
+
+ReactDOM.hydrate(<App />, window.approot);
+```
