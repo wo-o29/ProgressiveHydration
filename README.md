@@ -44,11 +44,14 @@ Now lets refersh the site and try again with clicking on the button to enable th
 <img src='assets/clickingonhydrat.png'>
 
 ## Server Side
-In server side, once the server start the bundle start building (intial content start creating) 
+Once the server start running the creation of the inital content will start. This operation Follow 4 septs ash shown:
 * Generate Bundlers through webpack 
 * Create the HTML File
 * Link the bundler
 * Return it as response
+
+### ssr function
+ssr function is the function that used for creation of html and send it to the client side.
 
 ```js
 app.get('/', async (request, response) => {
