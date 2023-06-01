@@ -40,7 +40,7 @@ Once the scroll reach the content the hydration operation start working
 
 <img src='assets/hydratiolist.png'>
 
-### CLICKING ON AVATAR**
+### CLICKING ON AVATAR
 So Let's try to click on the avatar. We notice that the action of clicking on avator is working.
 
 The hydrtion work Well !!
