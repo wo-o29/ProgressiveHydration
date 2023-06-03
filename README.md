@@ -25,7 +25,7 @@ After Run this command the server start building the bundles
 
 
 
-<img src='assets/building.png'>
+<img  width='100%' src='assets/building.png'>
 
 ### How it works
 To enable the hydration to our list we have to click on the button 'allow hydration'
