@@ -20,29 +20,26 @@ export class Hydrator extends React.Component {
   }
 
   componentDidMount() {
-    new IntersectionObserver(async ([entry], obs) => {
-      if (!entry.isIntersecting) return;
-      obs.unobserve(this.root);
+    new IntersectionObserver(
+      async ([entry], obs) => {
+        if (!entry.isIntersecting) return;
+        obs.unobserve(this.root);
 
-      const { load, ...props } = this.props;
-      const Child = interopDefault(await load());
-      if (props.allowHydration) {
-		console.log("Hydration Start...!")
-        ReactDOM.hydrate(<Child {...props} />, this.root);
-		console.log('Hydrate : ')
-		console.log(this.root)
-
+        const { load, ...props } = this.props;
+        const Child = interopDefault(await load());
+        if (props.allowHydration) {
+          ReactDOM.hydrate(<Child {...props} />, this.root);
+          console.log(`Hydrate Start by ${props.profile.name}`);
+        }
+      },
+      {
+        rootMargin: "-200px 0px",
+        threshold: 0,
       }
-    }).observe(this.root);
+    ).observe(this.root);
   }
 
   render() {
-    return (
-      <section
-        ref={(c) => (this.root = c)}
-        dangerouslySetInnerHTML={{ __html: "" }}
-        suppressHydrationWarning
-      />
-    );
+    return <section ref={(c) => (this.root = c)} dangerouslySetInnerHTML={{ __html: "" }} suppressHydrationWarning />;
   }
 }
