@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { Hydrator as ClientHydrator, ServerHydrator } from "./hydrator";
 import Intro from "./intro";
@@ -29,9 +30,7 @@ export default function App() {
           setAllow(true);
         }}
       />
-
       <Intro />
-
       {items.map((profile) => (
         <Hydrator allowHydration={allow} load={load} profile={profile} />
       ))}

@@ -22,13 +22,13 @@ export class Hydrator extends React.Component {
   componentDidMount() {
     new IntersectionObserver(
       async ([entry], obs) => {
-        if (!entry.isIntersecting) return;
-        obs.unobserve(this.root);
+        if (!entry.isIntersecting) return; // 뷰포트에 진입하지 않으면 early return
+        obs.unobserve(this.root); // 관찰 중지
 
         const { load, ...props } = this.props;
-        const Child = interopDefault(await load());
+        const Child = interopDefault(await load()); // 컴포넌트 로드
         if (props.allowHydration) {
-          ReactDOM.hydrate(<Child {...props} />, this.root);
+          ReactDOM.hydrate(<Child {...props} />, this.root); // 컴포넌트 hydrate
           console.log(`Hydrate Start by ${props.profile.name}`);
         }
       },
@@ -40,6 +40,6 @@ export class Hydrator extends React.Component {
   }
 
   render() {
-    return <section ref={(c) => (this.root = c)} dangerouslySetInnerHTML={{ __html: "" }} suppressHydrationWarning />;
+    return <section ref={(c) => (this.root = c)} dangerouslySetInnerHTML={{ __html: "" }} />;
   }
 }

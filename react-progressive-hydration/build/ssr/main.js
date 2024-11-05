@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "a00bf22eb14e9da55d86";
+/******/ 	var hotCurrentHash = "25519ca41ded05db5ef1";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -6373,7 +6373,7 @@ threshold:0
 };_proto.
 
 render=function render(){var _this2=this;
-return/*#__PURE__*/react_default.a.createElement("section",{ref:function ref(c){return _this2.root=c;},dangerouslySetInnerHTML:{__html:""},suppressHydrationWarning:true});
+return/*#__PURE__*/react_default.a.createElement("section",{ref:function ref(c){return _this2.root=c;},dangerouslySetInnerHTML:{__html:""}});
 };return Hydrator;}(react_default.a.Component);
 // CONCATENATED MODULE: ./components/intro.js
 
@@ -6441,6 +6441,7 @@ var data = __webpack_require__(129);
 
 
 
+
 var items=data.map(function(user){return{
 id:user.login.uuid,
 username:user.login.username,
@@ -6460,17 +6461,15 @@ load=function load(){return __webpack_require__(187);};
 
 console.log("hydration \uAC00\uB2A5 \uC0C1\uD0DC: "+allow);
 return/*#__PURE__*/(
-React.createElement("div",{id:"app"},/*#__PURE__*/
-React.createElement(Header,{
+react_default.a.createElement("div",{id:"app"},/*#__PURE__*/
+react_default.a.createElement(Header,{
 onClick:function onClick(){
 setAllow(true);
 }}
 ),/*#__PURE__*/
-
-React.createElement(Intro,null),
-
+react_default.a.createElement(Intro,null),
 items.map(function(profile){return/*#__PURE__*/(
-React.createElement(Hydrator,{allowHydration:allow,load:load,profile:profile}));}
+react_default.a.createElement(Hydrator,{allowHydration:allow,load:load,profile:profile}));}
 )
 ));
 
